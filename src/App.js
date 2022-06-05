@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div className="Appj">
+    <div className="App">
       <BrowserRouter>
         <Navbar />
         <Search />
