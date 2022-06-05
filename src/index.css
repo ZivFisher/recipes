@@ -1,13 +1,206 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0% 20%;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: rgb(56, 56, 56);
+  line-height: 2.5rem;
+  margin: 2rem 0rem;
+}
+
+h4 {
+  font-size: 1rem;
+  color: rgb(56, 56, 56);
+}
+
+a {
+  color: rgb(56, 56, 56);
+}
+
+.Nav {
+  padding: 4rem 0rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.Nav svg {
+  font-size: 2rem;
+}
+
+.Logo {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-size: 400;
+  font-family: "Lobster Two", cursive;
+}
+
+.Grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-gap: 3rem;
+}
+
+.List {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0rem 0rem 2rem;
+}
+
+.Card1 img {
+  border-radius: 2rem;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 25rem;
+  border-radius: 2rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.Card1 p {
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  bottom: 0%;
+  transform: translate(-50%, 0%);
+  color: #ffffff;
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Wrapper {
+  margin: 0rem 4rem 2rem 4rem;
+}
+
+.Gradient {
+  z-index: 3;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+}
+
+.Card2 img {
+  width: 100%;
+  border-radius: 2rem;
+}
+
+.Card2 a {
+  text-decoration: none;
+}
+
+.Card2 h4 {
+  text-align: center;
+  padding: 1rem;
+}
+
+a.NavLink {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: 2rem;
+  text-decoration: none;
+  background: linear-gradient(35deg, #494949, #313131);
+  width: 6rem;
+  height: 6rem;
+  /* // cursor: pointer; */
+  transform: scale(0.8);
+}
+a.NavLink:active {
+  background: linear-gradient(to right, #f27121, #e94057);
+}
+
+a.NavLink h4 {
+  color: white;
+  font-size: 0.8rem;
+}
+a.NavLink svg {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.DetailWrapper{
+  margin-top: 10rem;
+  margin-bottom: 5rem;
+  display: flex;
+}
+
+.DetailWrapper h2{
+  margin-bottom: 2rem;
+}
+
+.DetailWrapper ul{
+  margin-top: 2rem;
+}
+
+.DetailWrapper li{
+  font-size: 1.2rem;
+  line-height: 2.5rem;
+}
+
+
+.instructions-ingredients-button{
+  padding: 1rem 2rem;
+  color: #313131;
+  background: white;
+  border: 2px solid black;
+  margin-right: 2rem;
+  font-weight: 600;
+}
+
+.instructions-ingredients-button-active{
+  padding: 1rem 2rem;
+  color: #313131;
+  background: white;
+  border: 2px solid black;
+  margin-right: 2rem;
+  font-weight: 600;
+  background: linear-gradient(35deg, #494949, #313131);
+  color: white;
+}
+
+.instructions-ingredients-button:hover{
+  padding: 1rem 2rem;
+  color: #313131;
+  background: white;
+  border: 2px solid black;
+  margin-right: 2rem;
+  font-weight: 600;
+  background: linear-gradient(35deg, #494949, #313131);
+  color: white;
+  cursor: pointer;
+}
+
+.Info{
+  margin-left: 10rem;
 }
