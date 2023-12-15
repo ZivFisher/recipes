@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Button, DetailWrapper, Info } from "../styles/styledDivs";
 
 const Recipe = () => {
   let params = useParams();
@@ -21,20 +20,28 @@ const Recipe = () => {
   }, [params.id]);
 
   return (
-    <div className='DetailWrapper'>
+    <div className="DetailWrapper">
       <div>
         <h2>{recipe.title}</h2>
         <img src={recipe.image} alt={recipe.title} />
       </div>
-      <div className='Info'>
+      <div className="Info">
         <button
-          className={activeTab === "instructions" ? "instructions-ingredients-button-active" : "instructions-ingredients-button"}
+          className={
+            activeTab === "instructions"
+              ? "instructions-ingredients-button-active"
+              : "instructions-ingredients-button"
+          }
           onClick={() => setActiveTab("instructions")}
         >
           Instructions
         </button>
         <button
-          className={activeTab === "ingredients" ? "instructions-ingredients-button-active" : "instructions-ingredients-button"}
+          className={
+            activeTab === "ingredients"
+              ? "instructions-ingredients-button-active"
+              : "instructions-ingredients-button"
+          }
           onClick={() => setActiveTab("ingredients")}
         >
           Ingredients
