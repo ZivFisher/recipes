@@ -5,6 +5,7 @@
 # Recipes
 
 A simple React project for the purpose of demonstrating my knowledge of creating React components, pages, and network requests.
+This project focuses on yummy food recipes from the Spoonacular API.
 
 ## Installation
 
