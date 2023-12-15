@@ -6,18 +6,21 @@ const Recipe = () => {
   const [recipe, setRecipe] = useState({});
   const [activeTab, setActiveTab] = useState("instructions");
 
-  const getRecipe = async () => {
-    const data = await fetch(
-      `https://api.spoonacular.com/recipes/${params.id}/information?apiKey=${process.env.REACT_APP_API_KEY}`
-    );
-    const recipeObj = await data.json();
-    console.log(recipeObj);
-    setRecipe(recipeObj);
-  };
-
   useEffect(() => {
-    getRecipe();
+    const controller = new AbortController();
+    getRecipe(controller);
+
+    return () => {
+      controller.abort();
+    };
   }, [params.id]);
+
+  const getRecipe = async (controller) => {
+    const url = `https://api.spoonacular.com/recipes/${params.id}/information?apiKey=${process.env.REACT_APP_API_KEY}`;
+    const res = await fetch(url, { signal: controller.signal });
+    const data = await res.json();
+    setRecipe(data);
+  };
 
   return (
     <div className="DetailWrapper">

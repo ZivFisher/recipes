@@ -6,30 +6,33 @@ const Cuisine = () => {
   const [cuisine, setCuisine] = useState([]);
   let params = useParams();
 
-  const getCuisine = async (name) => {
-    const data = await fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${name}`
-    );
+  useEffect(() => {
+    const controller = new AbortController();
+    getCuisine(params.type, controller);
+
+    return () => {
+      controller.abort();
+    };
+  }, [params.type]);
+
+  const getCuisine = async (name, controller) => {
+    const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${name}`;
+    const data = await fetch(url, { signal: controller.signal });
     const recipes = await data.json();
     setCuisine(recipes.results);
   };
 
-  useEffect(() => {
-    getCuisine(params.type);
-    console.log(params);
-  }, [params.type]);
-
   return (
-    <motion.div 
-      className='Grid'
-      animate={{opacity: 1}}
-      initial={{opacity: 0}}
-      exit={{opacity: 0}}
-      transition={{duration: 0.5}}
+    <motion.div
+      className="Grid"
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
     >
       {cuisine.map((recipe) => {
         return (
-          <div className='Card2' key={recipe.id}>
+          <div className="Card2" key={recipe.id}>
             <Link to={"/recipe/" + recipe.id}>
               <img src={recipe.image} alt={recipe.title} />
               <h4>{recipe.title}</h4>

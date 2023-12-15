@@ -6,18 +6,21 @@ const Searched = () => {
   let params = useParams();
   const [searchedRecipes, setSearchedRecipes] = useState([]);
 
-  const getSearched = async (name) => {
-    const data = await fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${name}`
-    );
-    const recipes = await data.json();
-    setSearchedRecipes(recipes.results);
-    console.log(searchedRecipes);
-  };
-
   useEffect(() => {
-    getSearched(params.search);
+    const controller = new AbortController();
+    getSearched(params.search, controller);
+
+    return () => {
+      controller.abort();
+    };
   }, [params.search]);
+
+  const getSearched = async (name, controller) => {
+    const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${name}`;
+    const res = await fetch(url, { signal: controller.signal });
+    const recipes = await res.json();
+    setSearchedRecipes(recipes.results);
+  };
 
   return (
     <Grid>
