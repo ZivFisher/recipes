@@ -22,7 +22,6 @@ function Popular() {
     await fetchData(url, "popular", setPopular, { signal: controller.signal });
   };
 
-  
   return (
     <Wrapper>
       <h3>Popular Picks</h3>
